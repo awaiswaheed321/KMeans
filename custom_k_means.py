@@ -35,15 +35,20 @@ def kmeans(X, k, max_iters=100, tol=1e-4):
 
     return centroids, labels
 
+def get_data(random=True):
+    np.random.seed()
+    if random:
+        X = np.random.uniform(low=-10, high=10, size=(400, 2))
+    else:
+        data1 = np.random.randn(100, 2) + np.array([5, 5])
+        data2 = np.random.randn(100, 2) + np.array([-5, -5])
+        data3 = np.random.randn(100, 2) + np.array([5, -5])
+        data4 = np.random.randn(100, 2) + np.array([-5, 5])
+        X = np.vstack([data1, data2, data3, data4])
+    return X
 
 def main():
-    # Generate 2D data: 3 clusters
-    np.random.seed()
-    data1 = np.random.randn(100, 2) + np.array([5, 5])
-    data2 = np.random.randn(100, 2) + np.array([-5, -5])
-    data3 = np.random.randn(100, 2) + np.array([5, -5])
-    data4 = np.random.randn(100, 2) + np.array([-5, 5])
-    X = np.vstack([data1, data2, data3, data4])
+    X = get_data(True)
 
     # Plot initial data
     # plt.scatter(X[:, 0], X[:, 1])
