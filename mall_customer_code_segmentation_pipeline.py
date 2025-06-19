@@ -69,12 +69,20 @@ def find_optimal_k(X, max_k=10):
 
     return optimal_k
 
+# 💾 Step 9: Export clustered data to CSV
+def export_clusters(df, labels, filename="clustered_customers.csv"):
+    df_with_labels = df.copy()
+    df_with_labels['Cluster'] = labels
+    df_with_labels.to_csv(filename, index=False)
+    print(f"Clustered data saved to '{filename}'")
 
 # Step 8: Final clustering and plot
 def cluster_and_plot(X, df, optimal_k):
     kmeans = KMeans(n_clusters=optimal_k, n_init=10, random_state=42)
     kmeans.fit(X)
     labels = kmeans.labels_
+
+    export_clusters(df, labels)
 
     plt.figure(figsize=(8, 6))
     plt.scatter(
@@ -92,7 +100,6 @@ def cluster_and_plot(X, df, optimal_k):
     plt.ylabel("Spending Score (1-100)")
     plt.grid(True)
     plt.show()
-
 
 # Pipeline execution
 df = load_data()
