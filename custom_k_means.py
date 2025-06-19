@@ -35,6 +35,7 @@ def kmeans(X, k, max_iters=100, tol=1e-4):
 
     return centroids, labels
 
+
 def get_data(random=True):
     np.random.seed()
     if random:
@@ -46,6 +47,7 @@ def get_data(random=True):
         data4 = np.random.randn(100, 2) + np.array([-5, 5])
         X = np.vstack([data1, data2, data3, data4])
     return X
+
 
 def main():
     X = get_data(True)

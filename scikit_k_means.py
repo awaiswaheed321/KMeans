@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
+
 def get_data(random=True):
     np.random.seed()
     if random:
@@ -13,6 +14,7 @@ def get_data(random=True):
         data4 = np.random.randn(100, 2) + np.array([-5, 5])
         X = np.vstack([data1, data2, data3, data4])
     return X
+
 
 def main():
     X = get_data()
@@ -27,11 +29,17 @@ def main():
     # Plot the clusters
     plt.scatter(X[:, 0], X[:, 1], c=labels, cmap="viridis", alpha=0.6)
     plt.scatter(
-        centroids[:, 0], centroids[:, 1], color="red", marker="X", s=200, label="Centroids"
+        centroids[:, 0],
+        centroids[:, 1],
+        color="red",
+        marker="X",
+        s=200,
+        label="Centroids",
     )
     plt.title("K-Means Clustering (sklearn)")
     plt.legend()
     plt.show()
+
 
 if __name__ == "__main__":
     main()
