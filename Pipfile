@@ -8,6 +8,7 @@ numpy = "*"
 matplotlib = "*"
 black = "*"
 scikit-learn = "*"
+kneed = "*"
 
 [dev-packages]
 
