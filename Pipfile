@@ -9,6 +9,7 @@ matplotlib = "*"
 black = "*"
 scikit-learn = "*"
 kneed = "*"
+pandas = "*"
 
 [dev-packages]
 
